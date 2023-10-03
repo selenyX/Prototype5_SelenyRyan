@@ -7,6 +7,9 @@ using TMPro;
 public class Level2 : MonoBehaviour
 {
     public Target Target;
+    public int Minimum;
+    public TMP_Text percentText;
+
     public TMP_Text victoryText;
     float endTimer = 0.0f;
     bool complete = false;
@@ -20,15 +23,14 @@ public class Level2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int percent = Mathf.Min(100, (int)(100f * Target.GetCount() / (float)Minimum));
+        percentText.text = percent.ToString() + "%";
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Debug.Log(Target.GetCount());
-        }
-        if (!complete && Target.GetCount() >= 600) // level complete
+        if (!complete && Target.GetCount() >= Minimum) // level complete
         {
             complete = true;
             victoryText.gameObject.SetActive(true);

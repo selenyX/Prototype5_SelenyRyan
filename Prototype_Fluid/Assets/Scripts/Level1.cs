@@ -7,7 +7,12 @@ using TMPro;
 public class Level1 : MonoBehaviour
 {
     public Target LeftTarget;
+    public int LeftMinimum;
+    public TMP_Text leftText;
     public Target RightTarget;
+    public int RightMinimum;
+    public TMP_Text rightText;
+
     public TMP_Text victoryText;
     float endTimer = 0.0f;
     bool complete = false;
@@ -21,11 +26,17 @@ public class Level1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int leftPercent = Mathf.Min(100, (int)(100f * LeftTarget.GetCount() / (float)LeftMinimum));
+        int rightPercent = Mathf.Min(100, (int)(100f * RightTarget.GetCount() / (float)RightMinimum));
+        leftText.text = leftPercent.ToString() + "%";
+        rightText.text = rightPercent.ToString() + "%";
+
+
         if (Input.GetKeyDown(KeyCode.R)) // retry
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if (!complete && LeftTarget.GetCount() >= 300 && RightTarget.GetCount() >= 300) // level complete
+        if (!complete && LeftTarget.GetCount() >= LeftMinimum && RightTarget.GetCount() >= RightMinimum) // level complete
         {
             complete = true;
             victoryText.gameObject.SetActive(true);
