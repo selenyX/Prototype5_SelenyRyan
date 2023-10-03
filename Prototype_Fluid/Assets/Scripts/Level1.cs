@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using MoreMountains.Feedbacks;
 
 public class Level1 : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Level1 : MonoBehaviour
     public TMP_Text victoryText;
     float endTimer = 0.0f;
     bool complete = false;
+
+    public MMFeedbacks winFeedback;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,7 @@ public class Level1 : MonoBehaviour
             complete = true;
             victoryText.gameObject.SetActive(true);
             endTimer = 1.0f;
+            winFeedback.PlayFeedbacks();
         }
         if (endTimer > 0.0f) // wait one second before moving to next level
         {

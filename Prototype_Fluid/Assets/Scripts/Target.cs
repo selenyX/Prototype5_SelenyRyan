@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Target : MonoBehaviour
 {
+
+    public AudioSource sfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,7 @@ public class Target : MonoBehaviour
         if (other.gameObject.tag == "Water")
         {
             count++;
+            sfx.Play();
         }
     }
 
