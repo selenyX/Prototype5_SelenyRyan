@@ -7,6 +7,8 @@ public class Target : MonoBehaviour
 {
 
     public AudioSource sfx;
+
+    bool audioAlreadyPlayed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +26,11 @@ public class Target : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Water")
+        if (other.gameObject.tag == "Water" && !audioAlreadyPlayed)
         {
             count++;
             sfx.Play();
+            audioAlreadyPlayed = true;
         }
     }
 

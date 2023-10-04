@@ -10,7 +10,6 @@ public class ReverseGravity : MonoBehaviour
 
     private void Start()
     {
-        // Get the Rigidbody component attached to the GameObject.
         rb = GetComponent<Rigidbody>();
 
         // Ensure that the Rigidbody component exists.
@@ -23,8 +22,7 @@ public class ReverseGravity : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-        if (collision.gameObject.CompareTag("NoGravity")) 
+        if (collision.gameObject.CompareTag("NoGravity"))
         {
             // Reverse the gravity direction.
             reverseGravity = !reverseGravity;
@@ -42,4 +40,6 @@ public class ReverseGravity : MonoBehaviour
             }
         }
     }
+   
+    
 }
