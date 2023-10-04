@@ -20,9 +20,9 @@ public class ReverseGravity : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("NoGravity"))
+        if (collision.gameObject.CompareTag("ReverseGravity"))
         {
             // Reverse the gravity direction.
             reverseGravity = !reverseGravity;

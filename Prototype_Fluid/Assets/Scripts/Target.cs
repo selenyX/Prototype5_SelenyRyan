@@ -26,11 +26,15 @@ public class Target : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Water" && !audioAlreadyPlayed)
+        if (other.gameObject.tag == "Water")
         {
             count++;
-            sfx.Play();
-            audioAlreadyPlayed = true;
+            if (!audioAlreadyPlayed)
+            {
+                sfx.Play();
+                audioAlreadyPlayed = true;
+            }
+            
         }
     }
 

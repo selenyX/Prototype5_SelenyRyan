@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NoGravity
   - Water
+  - ReverseGravity
   layers:
   - Default
   - TransparentFX
