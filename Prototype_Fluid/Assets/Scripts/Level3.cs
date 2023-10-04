@@ -45,7 +45,7 @@ public class Level3 : MonoBehaviour
             endTimer -= Time.deltaTime;
             if (endTimer <= 0.0f)
             {
-                SceneManager.LoadScene("Scene03");
+                SceneManager.LoadScene("Scene04");
             }
         }
     }
